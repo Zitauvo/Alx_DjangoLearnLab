@@ -5,10 +5,10 @@ from .models import Book, Library
 # Function-based view
 def list_books(request):
     books = Book.objects.all()
-    return render(request, 'list_books.html', {'books': books})
+    return render(request, 'relationship_app/list_books.html', {'books': books})
 
 # Class-based view
 class LibraryDetailView(DetailView):
     model = Library
-    template_name = 'library_detail.html'  # Template for library details
-    context_object_name = 'library'        # Name used in the template
+    template_name = 'relationship_app/library_detail.html'  # <-- must match folder
+    context_object_name = 'library'
