@@ -1,6 +1,7 @@
+from django.shortcuts import render
+from django.views.generic.detail import DetailView  # use this instead of the generic import
 from .models import Library
 from .models import Book
-
 
 # Function-based view for listing all books
 def list_books(request):
@@ -10,10 +11,9 @@ def list_books(request):
 # Class-based view for library details
 class LibraryDetailView(DetailView):
     model = Library
-    template_name = 'relationship_app/library_detail.html'  # must match folder structure
+    template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
 
-    # Add books to context so template can list them
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['books'] = Book.objects.filter(library=self.object)
