@@ -1,0 +1,41 @@
+<!-- add_book.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Book</title>
+</head>
+<body>
+    <h1>Add a New Book</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <p>
+            <label for="title">Book Title:</label>
+            <input type="text" name="title" id="title" required>
+        </p>
+
+        <p>
+            <label for="author">Author:</label>
+            <select name="author" id="author" required>
+                {% for author in authors %}
+                    <option value="{{ author.id }}">{{ author.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+
+        <p>
+            <label for="library">Library:</label>
+            <select name="library" id="library" required>
+                {% for library in libraries %}
+                    <option value="{{ library.id }}">{{ library.name }}</option>
+                {% endfor %}
+            </select>
+        </p>
+
+        <button type="submit">Add Book</button>
+    </form>
+
+    <p><a href="{% url 'list_books' %}">Back to Book List</a></p>
+</body>
+</html>
