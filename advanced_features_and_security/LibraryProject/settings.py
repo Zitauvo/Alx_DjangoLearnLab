@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Your apps
-    'bookshelf',
+    'LibraryProject.bookshelf',
     'accounts',
 ]
 
