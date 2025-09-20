@@ -41,12 +41,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Your apps
-    'LibraryProject.bookshelf',
     'accounts',
+    'bookshelf',
 ]
 
 # Tell Django to use your custom user model
+
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
 
 
 MIDDLEWARE = [
