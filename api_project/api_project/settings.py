@@ -40,11 +40,22 @@ INSTALLED_APPS = [
 
     # third-party
     'rest_framework',
+    'rest_framework.authtoken',  # << Add this line
 
     # local apps
     'api',
 ]
 
+# Django REST Framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',   # Token-based authentication
+        'rest_framework.authentication.SessionAuthentication', # Optional: session authentication for browser access
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',  # Authenticated users can write; others read-only
+    ],
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
