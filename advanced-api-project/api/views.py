@@ -39,7 +39,7 @@ class BookDetailView(generics.RetrieveAPIView):
 
 
 # Create a new book (only for authenticated users)
-class BookCreateView(generics.CreateAPIView):
+class BookListCreateView(generics.ListCreateAPIView):
     """
     Allows authenticated users to add a new book.
     """
