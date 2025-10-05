@@ -11,6 +11,7 @@ Views:
 - BookUpdateView: Update an existing book (authenticated users only)
 - BookDeleteView: Delete a book (authenticated users only)
 """
+
 from rest_framework import generics, permissions
 from .models import Book
 from .serializers import BookSerializer
@@ -39,7 +40,7 @@ class BookDetailView(generics.RetrieveAPIView):
 
 
 # Create a new book (only for authenticated users)
-class BookListCreateView(generics.ListCreateAPIView):
+class BookCreateView(generics.CreateAPIView):
     """
     Allows authenticated users to add a new book.
     """
@@ -66,4 +67,3 @@ class BookDeleteView(generics.DestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
     permission_classes = [permissions.IsAuthenticated]
-
